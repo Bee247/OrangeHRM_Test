@@ -1,11 +1,12 @@
-Feature: Creating a valid login
+Feature: Admin User
 
-  Background: Common steps
-    Given I am on application page
+  Background:
+    Given I am on the application home page
+    And I log in
 
-  Scenario: I want to login with valid credentials
-
-    When I input valid Username to text boxes
-    And I input valid Password to text boxes
-    When I click on the login button
-    Then I should be logged in successfully
+  Scenario: Verify that admin can search user panel by filter
+    When I click the Admin menu
+    And I should see the user page
+    When I enter user data
+    And I click on the search button
+    Then Search result should return the current user
